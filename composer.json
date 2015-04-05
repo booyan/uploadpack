@@ -1,0 +1,10 @@
+{
+  "name": "szajbus/uploadpack",
+  "type": "cakephp-plugin",
+  "require": {
+    "composer/installers": "*"
+  },
+  "extra": {
+    "installer-name": "UploadPack"
+  }
+}
