@@ -30,19 +30,20 @@ class UploadHelper extends AppHelper {
     {
         $options += array('style' => 'original', 'urlize' => true);
         list($model, $field) = explode('.', $field);
+	    $Model = ClassRegistry::init($model);
         if(is_array($data))
         {
             if(isset($data[$model]))
             {
-                if(isset($data[$model]['id']))
+                if(isset($data[$model][$Model->primaryKey]))
                 {
-                    $id = $data[$model]['id'];
+                    $id = $data[$model][$Model->primaryKey];
                     $filename = $data[$model][$field.'_file_name'];
                 }
             }
-            elseif(isset($data['id']))
+            elseif(isset($data[$Model->primaryKey]))
             {
-                $id = $data['id'];
+                $id = $data[$Model->primaryKey];
                 $filename = $data[$field.'_file_name'];
             }
         }
